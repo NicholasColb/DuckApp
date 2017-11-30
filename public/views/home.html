@@ -1,0 +1,73 @@
+  <div class="table-responsive" style= "text-align:center;">
+   <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="position:absolute;left:0;">Sort
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Newest first</a></li>
+    <li><a href="#">Oldest first</a></li>
+    <li><a href="#">Number</a></li>
+	<li><a href="#">Species</a></li>
+  </ul>
+</div>
+<h2>Recent Sightings</h2>
+  <table class="table" >
+	<tr>
+ 
+  
+	<div  class="item col-md-4" ng-repeat="app in apps" fadeout>
+      <a href="#!/sightings/{{$index}}"> 
+          <img id="fade-scroll-bottom" ng-src='images/{{app.species}}.png' class="img-circle" alt='{{ app.species}}' style="width:50%;height:50%;">
+	  </a>
+      <p style="font-family: 'Lucida Console', Monaco, monospace; padding:10px;color:cyan;">{{ app.dateTime | date:'medium' }}<p>
+        
+	</div>
+	
+	
+	</tr>
+	
+  </table>
+</div>
+    <!--
+  
+
+	
+	KENWGK
+
+  
+ 
+
+<h2>Recent Sightings</h2>
+    <div class="row">
+      <div class="item col-md-4" ng-repeat="app in apps">
+        <a href="#!/sightings/{{$index}}"> 
+          
+          <p class="author">{{ app.dateTime | date:'medium' }}</p>
+        </a>
+		
+		
+      </div>
+    </div>
+
+  </div>
+  
+  
+  
+ 
+  <div class="table-responsive" style= "text-align:center;">
+   
+<h2>Recent Sightings</h2>
+  <table class="table" >
+	<tr>
+	<div id="fade-scroll-bottom" class="item col-md-4 fade-scroll-bottom" ng-repeat="app in apps">
+      <a href="#!/sightings/{{$index}}"> 
+          <img ng-src='images/{{app.species}}.png' class="img-circle" alt='{{ app.species}}' style="width:100%;height:100%;">
+	  </a>
+      <p style="font-family: 'Lucida Console', Monaco, monospace; padding:10px;color:cyan;">{{ app.dateTime | date:'medium' }}<p>
+        
+	</div>
+	</tr>
+	
+  </table>
+</div>
+  -->
+  
