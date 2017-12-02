@@ -27,6 +27,13 @@ const species = [
 ];
 
 const sightings = [
+{
+    id: '0',
+    species: 'canvasback',
+    description: 'Just a duck I saw',
+    dateTime: '2016-09-01T01:01:00Z',
+    count: 1
+  },
   {
     id: '1',
     species: 'gadwall',
@@ -38,7 +45,7 @@ const sightings = [
     id: '2',
     species: 'lesser scaup',
     description: 'This was an awesome one',
-    dateTime: '2016-12-13T12:05:00Z',
+    dateTime: '2016-12-1312:05:00',
     count: 5
   },
   {

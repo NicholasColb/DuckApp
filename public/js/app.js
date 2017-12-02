@@ -4,11 +4,26 @@ app.config(function ($routeProvider) {
   $routeProvider 
     .when('/sightings/:order', { 
       controller: 'MainController', 
-      templateUrl: 'views/home.html' 
+      templateUrl: 'views/home.html',
+	  resolve: {
+			sightingdata: function(sightings) {
+				return sightings.getData();
+			}
+				
+				
+		}
+		
     }) 
   	.when('/sighting/:id', {
     	controller: 'SightingController',
-    	templateUrl: 'views/sighting.html'
+    	templateUrl: 'views/sighting.html',
+		resolve: {
+			sightingdata: function(sightings) {
+				return sightings.getData();
+			}
+				
+				
+		}
   })
 	.when('/submitdate', {
     	controller: 'SubmitController',

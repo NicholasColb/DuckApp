@@ -1,15 +1,16 @@
-app.controller('MainController', ['$scope', 'sightings', '$routeParams', function($scope,sightings,$routeParams) {
-	//$scope.apps = [];
+app.controller('MainController', ['$scope', 'sightings','sightingdata', '$routeParams', function($scope,sightings,sightingdata,$routeParams) {
+	//$scope.apps = sightings
 	/*
-	*/
-		sightings.done(function(data) {
-			
-			$scope.apps =  data.sort(sortFunction);
-			$scope.apps.splice(1,0);
-			console.log($scope.apps.length);
+	*/	
+		
+			$scope.apps = sightingdata;														//load the resolve to avoid rendering before loading data
+			$scope.apps =  $scope.apps.sort(sortFunction);
 			$scope.$apply;
-			
-		});
+			console.log("now " + $scope.apps.length);
+		
+		
+		
+		
 		
 		
 	
@@ -42,7 +43,7 @@ app.controller('MainController', ['$scope', 'sightings', '$routeParams', functio
 		$scope.refreshAllData = function () {
             $.get('http://localhost:8081/sightings',function (data) {
                 angular.extend($scope.apps, data);
-				$scope.apps = $scope.apps.sort(sortFunction());
+				$scope.apps = $scope.apps.sort(sortFunction);
 				console.log("well that was easy, we now have a length of: " + data.length);
 				$scope.$apply();
 				

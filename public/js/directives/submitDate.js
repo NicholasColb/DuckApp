@@ -3,10 +3,13 @@ app.directive('submitdate', function(){
         link: function(scope, elm){
 			
 			$(elm).datepicker({
+				dateFormat: 'yy-mm-dd',
 				onSelect : function (dateText, inst) {
 					scope.changeSelectionData('date',dateText,true);
 				}
 			});
+			
+			//$(elm).datepicker("option", "dateFormat");
 			
 			
 			

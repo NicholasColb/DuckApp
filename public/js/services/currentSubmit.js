@@ -18,7 +18,7 @@ app.factory('currentSubmit', function() {
         },
         changeData : function(dataType,data) {
            current[dataType] = data;
-		   console.log("The data was changed. Now we have" + current.date + current.time + current.species + current.count );
+		   console.log("The data was changed. Now we have" + current.date + current.time + current.species + current.count + current.description);
         },
 		getNextOne : function(dataType) {
 			var array = ['date','time','species','count','description'];
