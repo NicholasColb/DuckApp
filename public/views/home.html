@@ -1,31 +1,36 @@
-  <div class="table-responsive" style= "text-align:center;">
+  <div style= "text-align:center;">
    <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="position:absolute;left:0;">Sort
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">Newest first</a></li>
-    <li><a href="#">Oldest first</a></li>
-    <li><a href="#">Number</a></li>
-	<li><a href="#">Species</a></li>
+  <input type="image" class="dropdown-toggle" src="images/sort.png" data-toggle="dropdown" value="image" style="position:absolute;left:0;"/>
+  
+  <ul class="dropdown-menu" style="font-size:20px;">
+	<li class="dropdown-header">Sort list by</li>
+	<li class="divider"></li>
+    <li><a href="#!/sightings/dateNew">Newest</a></li>
+    <li><a href="#!/sightings/dateOld">Oldest</a></li>
+    <li><a href="#!/sightings/number">Most</a></li>
+	<li><a href="#!/sightings/species">Species</a></li>
   </ul>
 </div>
 <h2>Recent Sightings</h2>
-  <table class="table" >
-	<tr>
+
+  <table class="table">
+	
  
   
-	<div  class="item col-md-4" ng-repeat="app in apps" fadeout>
-      <a href="#!/sightings/{{$index}}"> 
-          <img id="fade-scroll-bottom" ng-src='images/{{app.species}}.png' class="img-circle" alt='{{ app.species}}' style="width:50%;height:50%;">
+	<tr  class="item col-md-4" ng-repeat="app in apps" fadeout>
+      <td style="border:none;padding:50px;">
+	  <a href="#!/sighting/{{$index}}"> 
+          <img id="fade-scroll-bottom" ng-src='images/{{app.species}}.png' class="img-circle" alt='{{ app.species}}' style="width:300px;height:220px;">
 	  </a>
-      <p style="font-family: 'Lucida Console', Monaco, monospace; padding:10px;color:cyan;">{{ app.dateTime | date:'medium' }}<p>
-        
-	</div>
-	
-	
+      <p style="font-family: 'Lucida Console', Monaco, monospace;color:cyan;">{{ app.dateTime | date:'medium' }}</p>
+       </td> 
 	</tr>
 	
+	
+	
+	
   </table>
+ 
 </div>
     <!--
   
@@ -69,5 +74,9 @@
 	
   </table>
 </div>
+
+
+<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="position:absolute;left:0;">
+
   -->
   

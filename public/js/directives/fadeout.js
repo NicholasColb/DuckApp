@@ -1,6 +1,7 @@
 app.directive('fadeout', function(){
     return {
         link: function(scope, elm){
+			
 			$(elm).css('padding', '100px');
 			
 			

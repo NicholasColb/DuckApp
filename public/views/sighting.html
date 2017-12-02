@@ -1,13 +1,31 @@
 
 
 <html>
-<div class = "sighting">
+<div style="background-color:white;height:100vh;position:absolute;top:0;width:100%;">
+<img ng-src="images/{{detail.species}}.png" style="padding-top:50px;position:absolute;top:0;width:100%;height:auto;max-height:40%;max-width:600px;"></img>
+
+
+  
+
+
+
+
+<div class = "sighting" style="position:absolute;top:40%;">
 	<div class = "container">
-		<h2 class="id">{{ detail.id }}</h2> 
-		<p class="species">{{ detail.species }}</p> 
-		<p class="description">{{ detail.description }}</p>
-		<p class="dateTime">{{ detail.dateTime | date:'medium' }}</p>
-		<p class="count">{{ detail.count }}</p>
+		<h2 class="species">{{ detail.species }}</h2> 
+		<h2 class="description">{{ detail.description }}</h2>
+		<h2 class="dateTime">{{ detail.dateTime | date:'medium' }}</h2>
+		<h2 class="count">Number of ducks seen: {{ detail.count }}</h2>
 	</div>
 </div>
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#!/sightings/dateNew">Back</a>
+    </div>
+    </div>
+</nav>
+
 </html>

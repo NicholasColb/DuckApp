@@ -1,24 +1,48 @@
-app.controller('MainController', ['$scope', 'sightings', function($scope,sightings) {
+app.controller('MainController', ['$scope', 'sightings', '$routeParams', function($scope,sightings,$routeParams) {
 	//$scope.apps = [];
 	/*
 	*/
 		sightings.done(function(data) {
-			$scope.apps = data.sort(function (a,b) {
-				return new Date(a.dateTime) - new Date(b.dateTime);
-			});
 			
+			$scope.apps =  data.sort(sortFunction);
+			$scope.apps.splice(1,0);
+			console.log($scope.apps.length);
+			$scope.$apply;
 			
 		});
+		
+		
 	
-	
+		function sortFunction(a,b) {
+			
+				console.log($routeParams.order + 'sortinggg...');
+				if($routeParams.order == 'dateNew')  {
+					return new Date(b.dateTime) - new Date(a.dateTime);
+				} else if ($routeParams.order == 'dateOld') {
+					return new Date(a.dateTime) - new Date(b.dateTime);
+				} else if ($routeParams.order == 'number') {
+					return b.count - a.count;
+				} else if ($routeParams.order == 'species') {
+					
+					var aa = a.species.toUpperCase();
+					var bb = b.species.toUpperCase();
+					
+					console.log("the first one is " + aa + ". The second one is " + bb + (aa<bb));
+					
+					return (aa < bb) ? 1 : (aa > bb) ? -1 : 0;
+					
+				} else {
+					return 0;
+				}
+		
+		
+		};
 	
 		
-		$scope.RefreshAllData = function () {
+		$scope.refreshAllData = function () {
             $.get('http://localhost:8081/sightings',function (data) {
                 angular.extend($scope.apps, data);
-				$scope.apps = $scope.apps.sort(function (a,b) {
-					return new Date(b.dateTime) - new Date(a.dateTime);
-				});
+				$scope.apps = $scope.apps.sort(sortFunction());
 				console.log("well that was easy, we now have a length of: " + data.length);
 				$scope.$apply();
 				
@@ -50,7 +74,7 @@ app.controller('MainController', ['$scope', 'sightings', function($scope,sightin
 				if(data[i].name === spec) { 
 					console.log('was in array');
 					$.post("http://localhost:8081/sightings",{id:'',species:spec,description:descr,dateTime:dt,count:cou}, function () {
-						$scope.RefreshAllData();
+						$scope.refreshAllData();
 					});
 					return
 				} else {

@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label for="sel1">Select list:</label>
+  <select ng-model="selectedSpecie" class="form-control" id="sel1" ng-change="changeSelectionData('species',selectedSpecie,false)" submitspecies>
+    <option ng-repeat="specie in species">{{specie.name}}</option>
+    
+  </select>
+</div>

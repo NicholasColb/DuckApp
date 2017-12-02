@@ -8,8 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="stylesheets/clockpicker.css">
+<link href='https://fonts.googleapis.com/css?family=Gloria Hallelujah' rel='stylesheet'>
+ <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-darkness/jquery-ui.css"
+         rel = "stylesheet">
 
 	
 
@@ -18,11 +21,16 @@
     <title>The duck app</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/adder.js"></script>
-	<script type="text/javascript" src="js/sorter.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+	
 	  <!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
+
 	
 
 	
@@ -47,41 +55,29 @@
     
 	-->
 	
-	<body ng-app="myApp" style="background-color:#245E82;">
+	<body ng-app="myApp" style="background-color:#245E82;padding-top:70px;">
 	
 	
-	
-	
+	<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container" style="text-align:center;">
+    <h1 style="font-family: 'Gloria Hallelujah';">My Angular App</h1>
+  </div>
+</nav>
 
-<div class="jumbotron" style="text-align:center;" >
 
-<h1>The duck app</h1>
-  
-  
-</div>
+
+
 
 <div class="container" style="text-align:center;">
-	<a href="/#!/submit" class="btn btn-primary btn-lg" role="button">I just saw a duck!</a>
-	<a href="/#!/sightings" class="btn btn-primary btn-lg" role="button">Wait.. Which ducks have I seen?</a>
+	<a href="#!/submitdate" class="btn btn-primary btn-lg" role="button">I just saw a duck!</a>
+	<a href="#!/sightings/dateNew" class="btn btn-primary btn-lg" role="button">Wait.. Which ducks have I seen?</a>
 </div>
 	
     
 	
 	<div ng-view>
 	
-	</div>
-	
-	 
-	 
-	  <div class="main" ng-controller="MainController">
-	  <a href = "/#!/">click meh</a>
-	
-		
-	
-		  
-       
-      
-    </div>
+
 	
 	
 	
@@ -105,16 +101,23 @@
     <!-- Directives -->
     <script src="js/directives/info.js"></script>
 	<script src="js/directives/fadeout.js"></script>
+	<script src="js/directives/submitDate.js"></script>
+	<script src="js/directives/submitTime.js"></script>
+	<script src="js/directives/submitSpecies.js"></script>
+	<script src="js/directives/submitCount.js"></script>
+	<script src="js/directives/submitDescription.js"></script>
 	
 	 <!-- Filters -->
 	 <script src= "js/filters/filter.js"></script>
 	 
 	  <!-- Services -->
 	 <script src= "js/services/sightings.js"></script>
-	 
+	 <script src= "js/services/species.js"></script>
+	 <script src="js/services/currentSubmit.js"></script>
 	 <script src="js/jScroll/fade-scroll.js"></script>
+	  
 	 
-	
+	<script src="js/clockpicker.js"></script>
 	 
     
   </body>
