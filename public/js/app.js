@@ -2,6 +2,11 @@ var app = angular.module('myApp', ['ngRoute']);
 
 app.config(function ($routeProvider) { 
   $routeProvider 
+  
+	.when('/',{
+		controller:'MainController',
+		templateUrl: 'views/homepage.html'
+	})
     .when('/sightings/:order', { 
       controller: 'MainController', 
       templateUrl: 'views/home.html',
