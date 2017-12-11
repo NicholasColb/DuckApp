@@ -1,4 +1,6 @@
-  <div style= "text-align:center;">
+  
+  
+  <div style= "text-align:center;padding:0;padding-top:20px;">
    <div class="dropdown">
   <input type="image" class="dropdown-toggle" src="images/sort.png" data-toggle="dropdown" value="image" style="position:absolute;left:0;"/>
   
@@ -13,16 +15,16 @@
 </div>
 <h2>Recent Sightings</h2>
 
-  <table class="table">
+  <table class="table" style="padding-right:100px;" >
 	
  
   
-	<tr  class="item col-md-4" ng-repeat="app in apps" fadeout>
+	<tr  class="item col-md-4"  ng-repeat="app in apps"  style="padding-right:50px;"fadeout>
       <td style="border:none;padding:50px;">
 	  <a href="#!/sighting/{{app.id}}"> 
-          <img id="fade-scroll-bottom" ng-src='images/{{app.species}}.png' class="img-circle" alt='{{ app.species}}' style="width:300px;height:220px;">
+          <img id="fade-scroll-bottom" ng-src='images/{{app.species}}.png' class="img-circle" alt='{{ app.species}}' style="width:35vh;height:24vh;">
 	  </a>
-      <p style="font-family: 'Lucida Console', Monaco, monospace;color:cyan;">{{ app.dateTime | date:'medium' }}</p>
+      <p style="font-family: 'Lucida Console', Monaco, monospace;color:black;">{{ app.dateTime | date:'medium' }}</p>
        </td> 
 	</tr>
 	
@@ -32,6 +34,9 @@
   </table>
  
 </div>
+
+
+
     <!--
   
 

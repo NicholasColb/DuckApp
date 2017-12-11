@@ -1,6 +1,17 @@
+
+html {
+
+
+}
 body {
-    background-color: #81BEF7;
-	padding-top: 70px;
+    /*background-color: #81BEF7;*/
+	/*height: 100vh;*/
+    margin: 0;
+	
+    
+	  background: linear-gradient( #81BEF7, white);
+	padding-top:35px;
+	background-repeat: no-repeat;
 }
 
 #navigation {
