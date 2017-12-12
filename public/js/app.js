@@ -5,7 +5,14 @@ app.config(function ($routeProvider) {
   
 	.when('/',{
 		controller:'MainController',
-		templateUrl: 'views/homepage.html'
+		templateUrl: 'views/homepage.html',
+		resolve: {
+			sightingdata: function(sightings) {
+				return sightings.getData();
+			}
+				
+				
+		}
 	})
     .when('/sightings/:order', { 
       controller: 'MainController', 

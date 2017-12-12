@@ -34,7 +34,7 @@ app.controller('SubmitController', ['$scope', 'currentSubmit', 'species', '$loca
 		};
 		
 		$scope.readTime = function () {
-			console.log($('#timepicker').val());
+			console.log($('#timepicker').val() + "hello");
 			$scope.changeSelectionData('time',$('#timepicker').val(),false);
 		};
 		

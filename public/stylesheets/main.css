@@ -20,3 +20,49 @@ body {
 
 }
 
+
+#inputContainer {
+	
+	padding-top:30vh;
+	text-align:center;
+
+}
+
+#inputContainer #datepicker {
+	margin-top:50px;
+	
+	border:none;
+
+}
+
+#inputContainer p {
+	font-family: 'Archivo Black';
+	font-size:20px;
+
+}
+
+#done {
+	position:absolute;
+	padding-left:20px;
+	margin-top: -0.2em;
+	border:none;
+	outline:none;
+
+}
+
+#done2 {
+	
+	padding-top:20px;
+	border:none;
+	outline:none;
+
+}
+
+
+#descriptionpicker{
+	
+	
+	resize: none;
+
+}
+

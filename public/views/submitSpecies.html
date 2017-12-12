@@ -1,7 +1,12 @@
+<div id="inputContainer">
 <div class="form-group">
-  <label for="sel1">Select your duck specie</label>
+<p>Select your duck specie</p>
+  
   <select ng-model="selectedSpecie" class="form-control" id="sel1" ng-change="changeSelectionData('species',selectedSpecie,false)" submitspecies>
-    <option ng-repeat="specie in species">{{specie.name}}</option>
+    
+	<option>I have no idea</option>
+	<option ng-repeat="specie in species">{{specie.name}}</option>
     
   </select>
+</div>
 </div>

@@ -2,6 +2,23 @@ app.directive('submittime', function(){
     return {
         link: function(scope, elm){
 			
+			$(elm).bootstrapMaterialDatePicker({ date: false, format : 'HH:mm' });
+			
+			
+			
+			
+			
+			
+			
+        }
+    }
+});
+
+/*
+app.directive('submittime', function(){
+    return {
+        link: function(scope, elm){
+			
 			$(elm).timepicki({
 		show_meridian:false,
 		min_hour_value:0,
@@ -16,4 +33,4 @@ app.directive('submittime', function(){
 			
         }
     }
-});
+});*/
