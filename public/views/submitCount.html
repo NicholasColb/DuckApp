@@ -1,7 +1,26 @@
-<div id="inputContainer">
+<div id="inputContainer" >
+	
+	<p>Enter the number of ducks you saw</p>
+	<div class="wan-spinner demo" submitcount>
+		<a href="javascript:void(0)" class="minus">-</a>
+		<input id="number-picker" type="text" value="1">
+		<a href="javascript:void(0)" class="plus">+</a>
+			
+	</div>
+	<br>
+	<input  type="image" src="images/continue.png" ng-click="readCount()" class="done2" value="Submit">
 
-<p>Enter the number of ducks you saw</p>
-<input ng-model="numb" type="number" id="countpicker" size="40" min="1" ng-change= >
-<input type="image" src="images/checked.png" ng-click="readCount()" id="done" value="Submit">
 
 </div>
+
+
+<!-- <input ng-model="numb" type="number" id="countpicker" size="40" min="1"   
+
+
+
+<div id="number-picker" submitcount ></div>
+
+<input type="image" src="images/continue.png" ng-click="readCount()" id="done" value="Submit">
+
+
+> -->

@@ -32,6 +32,7 @@ body {
 	margin-top:50px;
 	
 	border:none;
+	outline:none;
 
 }
 
@@ -50,7 +51,7 @@ body {
 
 }
 
-#done2 {
+.done2 {
 	
 	padding-top:20px;
 	border:none;
@@ -65,4 +66,41 @@ body {
 	resize: none;
 
 }
+
+.currentInfo{
+	
+  height: 60vh;
+  width: 60vw;
+  position: relative;
+  
+  margin:auto;
+
+
+}
+
+.currentInfo img{
+	
+	position: absolute;
+  left: 0;
+  top: 0;
+  height:100%;
+  width:100%;
+  opacity:0.1;
+	border-radius:20px;
+	
+	
+
+}
+
+.info {
+    z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  /*left: 50px;
+  top: 50px;
+	*/
+	
+  }
 

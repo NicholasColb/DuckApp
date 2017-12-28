@@ -1,12 +1,18 @@
 app.controller('MainController', ['$scope', 'sightings','sightingdata', '$routeParams', function($scope,sightings,sightingdata,$routeParams) {
 	//$scope.apps = sightings
 	/*
-	*/	
+	*/		
+			
+			$scope.apps = sightingdata;	
+						//load the resolve to avoid rendering before loading data
 		
-			$scope.apps = sightingdata;														//load the resolve to avoid rendering before loading data
 			$scope.apps =  $scope.apps.sort(sortFunction);
+			
+				
+			
+			$scope.currentSelection = sightingdata[0];
+			console.log($scope.currentSelection.species);
 			$scope.$apply;
-			console.log("now " + $scope.apps.length);
 		
 		
 		
@@ -59,32 +65,12 @@ app.controller('MainController', ['$scope', 'sightings','sightingdata', '$routeP
 		};
 		
 		
-		$scope.addADuck = function() {
+		$scope.updateSelection = function(duck) {
+		
+			$scope.currentSelection = duck;
+			topFunction();
 			
-		var date,time,descr,spec,cou;
-			
-		date = $("#date1").val();						//since input type date-time is not widely supported, combining values date and time.
-		time = $("#time1").val();
-		var dt = date + "T" + time + ":00Z";
-		descr= $("#description1").val();
-		spec=$("#species1").val();
-		cou=$("#count1").val();
-			
-		$.get("http://localhost:8081/species",function(data,status){
-			for(var i = 0; i < data.length; i++) {
-				if(data[i].name === spec) { 
-					console.log('was in array');
-					$.post("http://localhost:8081/sightings",{id:'',species:spec,description:descr,dateTime:dt,count:cou}, function () {
-						$scope.refreshAllData();
-					});
-					return
-				} else {
-					console.log('was not in array');
-				}	
-			}
-		});	
-			
-	};
+		};
 		
 		
 		

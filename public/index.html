@@ -9,11 +9,13 @@
   
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="stylesheets/clockpicker.css">
+
 <link rel="stylesheet" href="stylesheets/timepicker.css">
 <link rel="stylesheet" href="stylesheets/main.css">
+<link rel="stylesheet" href="stylesheets/numberpicker.css">
 <link href='https://fonts.googleapis.com/css?family=Gloria Hallelujah' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Archivo Black' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
 <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-darkness/jquery-ui.css"
          rel = "stylesheet">
 
@@ -27,6 +29,7 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
 	<script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+	
 	
 	  <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -79,7 +82,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" style="color:white; font-family:'Gloria Hallelujah'"">The duck app</a>
+      <a class="navbar-brand" href="#!/" style="color:white; font-family:'Gloria Hallelujah'"">The duck app</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -102,6 +105,47 @@ $(document).on('click','.navbar-collapse.in',function(e) {
         $(this).collapse('hide');
     }
 });
+
+function topFunction() {
+	$('.currentInfo').hide();
+	function rec() {
+		
+		if(document.documentElement.scrollTop < 20) {
+			document.documentElement.scrollTop = 0;
+			
+			$('.currentInfo').fadeIn();
+			return;
+		} else {
+			
+			document.body.scrollTop -= 20; // Safari
+			document.documentElement.scrollTop -= 40; // Chrome
+			window.setTimeout(rec,[4]);
+		}
+	};
+	
+	rec();
+}
+
+function scrollFunction() {
+
+	function rec() {
+		
+		if(document.documentElement.scrollTop > window.innerHeight - 20) {
+			document.documentElement.scrollTop = window.innerHeight;
+			return;
+		} else {
+			
+			document.body.scrollTop += 20; // Safari
+			document.documentElement.scrollTop += 40; // Chrome
+			window.setTimeout(rec,[4]);
+		}
+	};
+	
+	rec();
+}
+
+
+
 </script>
 
 
@@ -109,7 +153,7 @@ $(document).on('click','.navbar-collapse.in',function(e) {
 	
     
 	
-	<div ng-view style="padding-top:15px;">
+	<div ng-view style="padding-top:15px;"></div>
 	
 
 	
@@ -151,8 +195,9 @@ $(document).on('click','.navbar-collapse.in',function(e) {
 	 <script src="js/jScroll/fade-scroll.js"></script>
 	  
 	 
-	<script src="js/clockpicker.js"></script>
+	
 	<script src="js/timepicker.js"></script>
+	<script type="text/javascript" src="js/numberpicker.js"></script>
 	 
     
   </body>

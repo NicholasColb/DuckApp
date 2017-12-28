@@ -6,8 +6,10 @@ app.directive('submitdate', function(){
 				dateFormat: 'yy-mm-dd',
 				onSelect : function (dateText, inst) {
 					scope.changeSelectionData('date',dateText,true);
+					
 				}
 			});
+			
 			
 			//$(elm).datepicker("option", "dateFormat");
 			

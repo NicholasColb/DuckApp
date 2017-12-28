@@ -2,7 +2,6 @@ app.factory('sightings', function(){
   return {
 	  getData: function () {
 		return $.get('http://localhost:8081/sightings', function(response) {
-			console.log(response.length);
 			return response;
 		});
 	  }

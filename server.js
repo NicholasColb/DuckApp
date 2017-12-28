@@ -45,7 +45,7 @@ const sightings = [
     id: '2',
     species: 'lesser scaup',
     description: 'This was an awesome one',
-    dateTime: '2016-12-1312:05:00',
+    dateTime: '2016-12-13T12:05:00Z',
     count: 5
   },
   {
@@ -113,7 +113,7 @@ app.get('/sightings', (req, res) => {
 
 
 app.post('/sightings', (req, res) => {
-  req.body.id = (sightings.length + 1).toString();
+  req.body.id = (sightings.length).toString();
   sightings.push(req.body); 
   res.json(req.body);
   
@@ -122,6 +122,9 @@ app.post('/sightings', (req, res) => {
 app.get('/species', (req, res) => {
   res.json(species);
 });
+
+
+
 
  /*app.get('/', function(req, res) {
         res.sendfile('routeTest.html'); // load the single view file (angular will handle the page changes on the front-end)
