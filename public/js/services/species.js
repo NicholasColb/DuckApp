@@ -1,7 +1,8 @@
+//A service for loading a list of species from the server
+
 app.factory('species', function(){
-  return $.get('http://localhost:8081/species')
+  return $.get(serverURL + '/species')
   		.done(function(data){
-			console.log("got spec data");
     return data;
   })
   		.fail(function(err) {

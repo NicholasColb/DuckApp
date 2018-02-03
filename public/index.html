@@ -35,44 +35,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
-
-
-
-	
-
-	
-	
-	  <!-- Include the AngularJS routing library -->
-
-
-	<script>
-	
-	if (performance.navigation.type == 1) {
-    console.info( "This page is reloaded" );
-  } else {
-    console.info( "This page is not reloaded");
-  }
-	</script>
 	
 	
 	
 	
   </head>
-  <!-- Modules <body> 
-    
-	-->
+ 
 	
 	<body ng-app="myApp">
 	
 	
-	<!--<nav class="navbar navbar-default navbar-fixed-top" style=" background-color:black;">
-  
-  
-  
-  <div class="container" style="text-align:center;">
-    <h1 style="font-family: 'Gloria Hallelujah'; color:white;">My Angular App</h1>
-  </div>
-</nav>-->
+	
 
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navigation">
   <div class="container-fluid">
@@ -99,59 +72,12 @@
 </nav>
 
 
-<script>
-$(document).on('click','.navbar-collapse.in',function(e) {
-    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
-        $(this).collapse('hide');
-    }
-});
 
-function topFunction() {
-	$('.currentInfo').hide();
-	function rec() {
-		
-		if(document.documentElement.scrollTop < 20) {
-			document.documentElement.scrollTop = 0;
-			
-			$('.currentInfo').fadeIn();
-			return;
-		} else {
-			
-			document.body.scrollTop -= 20; // Safari
-			document.documentElement.scrollTop -= 40; // Chrome
-			window.setTimeout(rec,[4]);
-		}
-	};
-	
-	rec();
-}
-
-function scrollFunction() {
-
-	function rec() {
-		
-		if(document.documentElement.scrollTop > window.innerHeight - 20) {
-			document.documentElement.scrollTop = window.innerHeight;
-			return;
-		} else {
-			
-			document.body.scrollTop += 20; // Safari
-			document.documentElement.scrollTop += 40; // Chrome
-			window.setTimeout(rec,[4]);
-		}
-	};
-	
-	rec();
-}
-
-
-
-</script>
 
 
 
 	
-    
+   
 	
 	<div ng-view style="padding-top:15px;"></div>
 	
@@ -162,42 +88,38 @@ function scrollFunction() {
 	
 	
 
-	<!-- Modules 
-	<div id= "sightList" ng-app="myApp" ng-controller="myCtrl">
-  
-  <h1 ng-repeat="x in sightings" style="color:blue;">{{x.id + x.species}}</h1>
-  </div>
-  -->
+	
 	<!-- Modules -->
     <script src="js/app.js" ></script>
 
     <!-- Controllers -->
     <script src="js/controllers/MainController.js"></script>
-	<script src="js/controllers/SightingController.js"></script>
 	<script src="js/controllers/SubmitController.js"></script>
 
     <!-- Directives -->
-    <script src="js/directives/info.js"></script>
+   
 	<script src="js/directives/fadeout.js"></script>
 	<script src="js/directives/submitDate.js"></script>
 	<script src="js/directives/submitTime.js"></script>
 	<script src="js/directives/submitSpecies.js"></script>
 	<script src="js/directives/submitCount.js"></script>
 	<script src="js/directives/submitDescription.js"></script>
+	<script src="js/directives/currentSelection.js"></script>
+	<script src="js/directives/sightingPiece.js"></script>
 	
-	 <!-- Filters -->
-	 <script src= "js/filters/filter.js"></script>
 	 
-	  <!-- Services -->
-	 <script src= "js/services/sightings.js"></script>
-	 <script src= "js/services/species.js"></script>
-	 <script src="js/services/currentSubmit.js"></script>
-	 <script src="js/jScroll/fade-scroll.js"></script>
-	  
 	 
+	<!-- Services -->
+	<script src= "js/services/sightings.js"></script>
+	<script src= "js/services/species.js"></script>
+	<script src="js/services/currentSubmit.js"></script>
 	
-	<script src="js/timepicker.js"></script>
-	<script type="text/javascript" src="js/numberpicker.js"></script>
+	<!-- Scripts -->
+	<script src="js/scripts.js"></script>
+	 
+	<!-- Plugins -->
+	<script src="js/plugins/timepicker.js"></script>
+	<script type="text/javascript" src="js/plugins/numberpicker.js"></script>
 	 
     
   </body>

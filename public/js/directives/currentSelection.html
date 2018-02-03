@@ -1,0 +1,18 @@
+<div id="infocontainer" class="currentInfo" >
+			<img id="currentInfoImage" ng-src="images/{{currentSelection.species}}.png" alt="Image not found">
+			<div id="currentInfo" class="info" style="width:100%;padding-left:50px;padding-top:20px;text-align:left;height:100%;overflow:hidden;">
+				<p class="glyphicon glyphicon-trash" style="float:right;padding-right:20px;font-size:0.7em;color:black;" ng-click="deleteSighting()">  </p>
+				<p>{{ currentSelection.dateTime | date }}</p>
+				<p>{{ currentSelection.dateTime | date :  'H:mm' }}</p>
+				<p>{{currentSelection.count}} {{currentSelection.species}}</p>
+				<p> {{currentSelection.description}}</p>
+				<p> {{currentSelection.id}}</p>
+				
+				
+			</div>
+			
+		</div>
+
+				
+				
+			

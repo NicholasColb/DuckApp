@@ -1,7 +1,9 @@
+//A service for loading all sightings from the server
+
 app.factory('sightings', function(){
   return {
 	  getData: function () {
-		return $.get('http://localhost:8081/sightings', function(response) {
+		return $.get(serverURL + '/sightings', function(response) {
 			return response;
 		});
 	  }
@@ -9,16 +11,3 @@ app.factory('sightings', function(){
 
 });
 
-/*
-app.factory('sightings', function(){
-  return $.get('http://localhost:8081/sightings')
-  		.done(function(data){
-			console.log("got data");
-    return data;
-  })
-  		.fail(function(err) {
-             return err;
-             });
-
-});
-*/

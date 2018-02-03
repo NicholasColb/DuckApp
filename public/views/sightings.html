@@ -1,0 +1,42 @@
+  
+  
+<div style= "text-align:center;background: linear-gradient( #b7dafa, white);">
+	
+	<div style="height:100vh;padding-top:10vh;">
+			<current-selection></current-selection>
+			<img style="padding-top:40px;" ng-hide="noneLeft()" src="images/down-arrow.png" onclick="scrollFunction()" />
+			<a id="getStarted" href="#!/submitdate" ng-show="noneLeft()">Get started<a>
+	</div>
+  
+	<div id="list" ng-hide="noneLeft()">
+		<h1>My sightings</h1>
+		<div class="dropdown text-center" style="text-align:center;">
+			<div class="dropdown btn-group">
+				<input type="image" class="dropdown-toggle" src="images/sort.png" data-toggle="dropdown" value="image" style="padding-top:20px;width:30px;height:auto;border-style: none;"/>
+  
+				<ul class="dropdown-menu" style="font-size:20px;font-family:'Nunito Sans';background-color:#66ffff;">
+					<li class="dropdown-header" style="font-size:20px;">Sort by</li>
+					<li class="divider"></li>
+					<li><a href="#!/sightings/dateNew">Newest</a></li>
+					<li><a href="#!/sightings/dateOld">Oldest</a></li>
+					<li><a href="#!/sightings/number">Most</a></li>
+					<li><a href="#!/sightings/species">Species</a></li>
+				</ul>
+
+			</div>
+		</div>
+
+
+		<table class="table" style="padding-right:100px;text-align:center;" >
+			<tr align="center" class="item col-md-4"  ng-repeat="app in apps" fadeout>
+				<td style="border:none;padding-top:25px;padding:100px;">
+					<sighting-piece info="app" ng-click="updateSelection(app)"></sighting-piece>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+	
+
+
+  

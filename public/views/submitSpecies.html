@@ -3,8 +3,6 @@
 <p>Select your duck specie</p>
   <div class="form-group">
   <select ng-model="selectedSpecie" style="overflow:visible; width:50vw;margin-left:25vw;" class="form-control" id="sel1" ng-change="changeSelectionData('species',selectedSpecie,false)" submitspecies>
-    
-	<option>I have no idea</option>
 	<option ng-repeat="specie in species">{{specie.name}}</option>
     
   </select>

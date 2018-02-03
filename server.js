@@ -110,15 +110,6 @@ app.get('/sightings', (req, res) => {
   res.json(sightings);
 });
 
-
-
-app.post('/sightings', (req, res) => {
-  req.body.id = (sightings.length).toString();
-  sightings.push(req.body); 
-  res.json(req.body);
-  
-});
-
 app.get('/species', (req, res) => {
   res.json(species);
 });
@@ -126,11 +117,47 @@ app.get('/species', (req, res) => {
 
 
 
- /*app.get('/', function(req, res) {
-        res.sendfile('routeTest.html'); // load the single view file (angular will handle the page changes on the front-end)
-    });
-	*/
+/*
+	Posts a new sighting to const. sightings. Generates a unique id for the new sighting by taking the biggest id and adding one to it.
+*/
+
+app.post('/sightings', (req, res) => {
+ 
+	if(sightings.length > 0 ) 
+	{ 
+		
+		console.log("were gonna put it as " + sightings[sightings.length -1].id + " plus one")
+		req.body.id = (+sightings[sightings.length - 1].id + +'1').toString();
+	}
+	else
+	{ 
+		req.body.id = '0';
+	}
+  
+  sightings.push(req.body); 
+  res.json(req.body);
+  
+});
+
+
+
+//deletes a sighting from sightings
+
+app.delete('/:id', (req,res) => {
+	
+		var id = req.params.id;
+		var index = sightings.map(function(e) { return e.id; }).indexOf(id);
+
+		sightings.splice(index,1);
+		res.json(sightings);
+});	
+
+
+
+
 app.use(express.static('public'));
+
+
 app.get('/', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 		

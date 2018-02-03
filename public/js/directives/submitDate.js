@@ -1,3 +1,4 @@
+//a directive to handle the jquery datepicker
 app.directive('submitdate', function(){
     return {
         link: function(scope, elm){
@@ -8,13 +9,7 @@ app.directive('submitdate', function(){
 					scope.changeSelectionData('date',dateText,true);
 					
 				}
-			});
-			
-			
-			//$(elm).datepicker("option", "dateFormat");
-			
-			
-			
+			});	
         }
     }
 });

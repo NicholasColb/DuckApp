@@ -1,24 +1,22 @@
-//holds the current submit
+//holds the user's current inputted data of a new sighting and communicates with the controller through the functions getData, changeData and getNextOne
 app.factory('currentSubmit', function() {
 	
-	var current = {
-		date : 'anonymous',
-		time : 'anonymous',
-		species : 'anonymous',
-		count : 'anonymous',
-		description : 'anonymous'
+	var current = {												//The variable "current" stores the actual data
+		date : '',
+		time : '',
+		species : '',
+		count : '',
+		description : ''
 	
 	};
 	
 	
   return {
-		getData : function () {
-
-            return current; //we need some way to access actual variable value
+		getData : function () {										
+            return current; 
         },
         changeData : function(dataType,data) {
            current[dataType] = data;
-		   console.log("The data was changed. Now we have" + current.date + current.time + current.species + current.count + current.description);
         },
 		getNextOne : function(dataType) {
 			var array = ['date','time','species','count','description'];

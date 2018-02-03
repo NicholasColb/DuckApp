@@ -1,12 +1,16 @@
-app.controller('SubmitController', ['$scope', 'currentSubmit', 'species', '$location', function($scope,currentSubmit,species,$location) {
+/*The controller for adding a new sighting to the server. Changes the view route and gathers data from the user. 
+Uses the service "currentSubmit" to store all current input given by the user. After all data is gathered, checks the data and posts it to the server.
+*/
+app.controller('SubmitController', ['$scope', 'currentSubmit', 'species' , '$location','$http', function($scope,currentSubmit, species,$location,$http) {
 		
 		
-			
-		$scope.loadSpecies = function() {
+		
+	//The service "species" gets a list of all species from the server through a http request. The user is shown a list of species to pick from. 
+		
+		$scope.loadSpecies = function() {																			
 
 			species.then(function(data) {
 				$scope.species = data;
-				console.log($scope.species[0].name);
 				$scope.$apply();
 				
 			});
@@ -15,6 +19,10 @@ app.controller('SubmitController', ['$scope', 'currentSubmit', 'species', '$loca
 		
 		
 		
+		
+		/*changeSelectionData stores inputted data into the service "currentSubmit" and changes the view to get the next piece of data from the user. Once all data is inputted,
+			the function calls $scope.addADuck to post the sighting to the server.
+		*/
 		
 		
 		$scope.changeSelectionData = function(dataType,data,update) {
@@ -32,69 +40,86 @@ app.controller('SubmitController', ['$scope', 'currentSubmit', 'species', '$loca
 			} else {
 					
 				$scope.addADuck(currentSubmit.getData());
-				console.log(currentSubmit.getNextOne(dataType));
+				
 					
-			}//change ng-view
+			}
 			
 				
 			
 		};
 		
+		
+		
+		
+		
+		
+		
+		/* Functions for reading the inputted data from the user via html input elements and passing the data to the $scope.changeSelectionData function.
+		*/
+		
 		$scope.readTime = function () {
-			console.log($('#timepicker').val() + "hello");
+			if($('#timepicker').val()){																		
 			$scope.changeSelectionData('time',$('#timepicker').val(),false);
+			}
 		};
 		
 		$scope.readCount = function () {
 			$scope.changeSelectionData('count', $('#number-picker').val(),false);
 		};
 		
-		$scope.getTime = function() {
-			$scope.time();
-		};
-		$scope.updateTime = function(newl){console.log(newl);};
-		
 		$scope.readDescription = function () {
 			$scope.changeSelectionData('description', $('#descriptionpicker').val(),false);
 			
-			$('#sliderOut').hide('slide', {direction: 'left'},1000);
-			
-			
 		};
 		
+		/*$scope.getTime = function() {
+			$scope.time();
+		};
+		$scope.updateTime = function(newl){console.log(newl);};
+		*/
+		
+		
+		
+		/* addADuck is called once all data is gathered from the user. It posts the data to the server and handles the UI jquery slide effects.
+		
+		
+		*/
 		
 		$scope.addADuck = function(input) {
+			if(input.date && input.time && input.species && input.count) {										//checks that the data exists
+				var date = input.date;
+				var time = input.time;
+				var dt = date + "T" + time + ":00";																//creates the  ISO 8601 datetime string
 			
-			var date = input.date;
-			var time = input.time;
-			
-			console.log(date + "." + time);
-			
-			var dt = date + "T" + time + ":00";
-			//dt = dt.replace(/\//g,"-");
-			console.log(dt);
-			console.log((new Date(dt)).getHours());
-			
-			
-			
-			$.get("http://localhost:8081/species",function(data,status){
-				for(var i = 0; i < data.length; i++) {
-					if(data[i].name === input.species) { 
-						
-						
-						
-						$.post("http://localhost:8081/sightings",{id: '',species:input.species,description:input.description,dateTime:dt,count:input.count},function () {
-								$('#sliderIn').show('slide', {direction: 'right'},1000);
-							});
-						
-						return;
-					} 
-				}
-			});	
-			
+				$http.get(serverURL + "/species")																//checks that an invalid species has not been inputted
+					.then(function(response) {
+						for(var i = 0; i < response.data.length; i++) {
+							if(response.data[i].name === input.species) { 
+								$http.post(serverURL + "/sightings",{id: '',species:input.species,description:input.description,dateTime:dt,count:input.count})	//posts the sighting to the server
+									.then(function() {
+										$('#sliderOut').hide('slide', {direction: 'left'},1000);								//jquery animates the html elements in the view
+										$('#sliderIn').show('slide', {direction: 'right'},1000);
+									});
+								
+								return;
+							} 
+						}
+					});
+			} else {
+				alert("Failed to add sighting. Try not to reload the page while submitting.");
+				$location.path("/submitdate");
+			}
 		};
 		
-		$scope.imReady = function() {
+		
+		
+		
+		/*
+		A function to return to the homepage after a sighting has been added
+		*/
+		
+		
+		$scope.imReady = function() {												
 				$location.path("#/"); 
 		};
 		

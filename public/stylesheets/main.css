@@ -14,6 +14,8 @@ body {
 	background-repeat: no-repeat;
 }
 
+
+
 #navigation {
 
 	background-color:black;
@@ -103,4 +105,18 @@ body {
 	*/
 	
   }
+  
+  
+#getStarted {
+	text-decoration:none;
+	font-size:20px;
+	color: #009900;
+	font-family: 'Archivo Black';
+
+}
+
+#getStarted:hover {
+	color:  #004d00;
+
+}
 
