@@ -92,9 +92,13 @@ const sightings = [
   }
 ];
 
+app.use(express.static('public'));
+
+
 //Enable CORS
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+  
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -155,7 +159,7 @@ app.delete('/:id', (req,res) => {
 
 
 
-app.use(express.static('public'));
+
 
 
 app.get('/', function (req, res) {
