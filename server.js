@@ -125,12 +125,22 @@ app.get('/species', (req, res) => {
 	Posts a new sighting to const. sightings. Generates a unique id for the new sighting by taking the biggest id and adding one to it.
 */
 
+
+app.post('/delete', (req,res) => {
+	
+		var id = req.body.id;
+		var index = sightings.map(function(e) { return e.id; }).indexOf(id);
+
+		sightings.splice(index,1);
+		res.json(sightings);
+});	
+
 app.post('/sightings', (req, res) => {
  
 	if(sightings.length > 0 ) 
 	{ 
 		
-		console.log("were gonna put it as " + sightings[sightings.length -1].id + " plus one")
+		
 		req.body.id = (+sightings[sightings.length - 1].id + +'1').toString();
 	}
 	else
@@ -147,14 +157,7 @@ app.post('/sightings', (req, res) => {
 
 //deletes a sighting from sightings
 
-app.delete('/:id', (req,res) => {
-	
-		var id = req.params.id;
-		var index = sightings.map(function(e) { return e.id; }).indexOf(id);
 
-		sightings.splice(index,1);
-		res.json(sightings);
-});	
 
 
 

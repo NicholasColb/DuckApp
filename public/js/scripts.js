@@ -10,7 +10,7 @@ $(document).on('click','.navbar-collapse.in',function(e) {
 function topFunction() {
 	$('.currentInfo').hide();
 	function rec() {
-		console.log("here too");
+		
 		
 		if(document.documentElement.scrollTop < 20) {
 			document.documentElement.scrollTop = 0;
@@ -31,10 +31,7 @@ function topFunction() {
 function scrollFunction() {
 	
 	function rec(scrollBefore) {
-		console.log("still here");
-		console.log("actual scrollTop: " + document.documentElement.scrollTop);
-			console.log("windows innerheight" + window.innerHeight);
-			console.log($(document).height());
+		
 		
 		if(document.documentElement.scrollTop + document.body.scrollTop > window.innerHeight - 60 || window.innerHeight + document.documentElement.scrollTop + document.body.scrollTop >= $(document).height() ) {
 			document.documentElement.scrollTop = window.innerHeight;

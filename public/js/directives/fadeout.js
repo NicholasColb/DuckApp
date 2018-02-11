@@ -12,7 +12,7 @@ app.directive('fadeout', function(){
 		
 			$(document).on('scroll', function() {
 				var bottomScollPos = $(document).scrollTop() + $(window).height();  
-				var elemOffsetTop = $(elm).offset().top;			console.log($(elm).offset().top);
+				var elemOffsetTop = $(elm).offset().top;			
 				if(bottomScollPos > elemOffsetTop) $(elm).css('opacity', (bottomScollPos-elemOffsetTop)/550);
 			});
 			

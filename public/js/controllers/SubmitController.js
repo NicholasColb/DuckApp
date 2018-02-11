@@ -26,9 +26,9 @@ app.controller('SubmitController', ['$scope', 'currentSubmit', 'species' , '$loc
 		
 		
 		$scope.changeSelectionData = function(dataType,data,update) {
-			console.log("The inputted data: " + data);
+			
 			currentSubmit.changeData(dataType,data);
-			console.log("we changed " + dataType + "updating view 5..4...3...2...1");
+			
 			
 			if(dataType != 'description') {
 				
@@ -72,18 +72,7 @@ app.controller('SubmitController', ['$scope', 'currentSubmit', 'species' , '$loc
 			
 		};
 		
-		/*$scope.getTime = function() {
-			$scope.time();
-		};
-		$scope.updateTime = function(newl){console.log(newl);};
-		*/
 		
-		
-		
-		/* addADuck is called once all data is gathered from the user. It posts the data to the server and handles the UI jquery slide effects.
-		
-		
-		*/
 		
 		$scope.addADuck = function(input) {
 			if(input.date && input.time && input.species && input.count) {										//checks that the data exists

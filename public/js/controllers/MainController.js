@@ -22,7 +22,6 @@ app.controller('MainController', ['$scope', 'sightings','sightingdata', '$routeP
 		if($scope.apps.length != 0) {
 					$scope.apps =  $scope.apps.sort(sortFunction);
 					$scope.currentSelection = sightingdata[0];							
-					console.log($scope.currentSelection.species);
 					$scope.$apply;
 		} 
 		
@@ -60,18 +59,14 @@ app.controller('MainController', ['$scope', 'sightings','sightingdata', '$routeP
 	
 		$scope.deleteSighting = function() {
 			
-			var indexUrl = $scope.currentSelection.id;
-			var check = confirm("Delete sighting?" + indexUrl);
+			var check = confirm("Delete sighting?");
 			if(check) {
-				$http({
-					method: 'DELETE',
-					url: '/' + indexUrl
-				}).then(function successCallback(response) {
-					$scope.refreshAllData();
-					
-				}, function errorCallback(response) {
-					console.log(response);
-				});
+				
+				
+				$http.post(serverURL + "/delete",$scope.currentSelection)	//posts the sighting to the server
+									.then(function() {
+										$scope.refreshAllData();
+									});
 				
 			}
 		};
